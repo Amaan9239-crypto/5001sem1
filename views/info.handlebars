@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pic info</title>
+<meta name="description" content="form to add new books">
+<meta name="author" content="Mark Tyers">
+<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+<script type="module" src="{{host}}/main.js"></script>
+<script src="{{host}}js/inform.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 
+
+</head>
+<body>
+<header>
+<h1>Information Page</h1>
+<a href="/logout">Log out</a>
+</header>
+{{#if msg}}
+  <aside>
+<p class="msg">{{msg}}</p>
+</aside>
+{{/if}}
+<main>
+</main>
+    <img src="{{host}}/theatrepic.jpg" alt="Thumbnail" width="200"/>
+    <p>The Show</p>
+    <p>5:30 - Introduction</p>
+      <div class="card-block">
+    <h4 id="name">5:45 - Act 1 - Diversity </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+     <input type="button" data-name="5:45 - Act 1 - Diversity " data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+  <div class="card-block">
+    <h4 id="name">6:00 - Act 2 - One Direction </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+     <input type="button" data-name="6:00 - Act 2 - One Direction" data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+   <div class="card-block">
+    <h4 id="name">6:15 - Act 3 - Little Mix </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+     <input type="button"data-name="6:15 - Act 3 - Little Mix " data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+ <div class="card-block">
+    <h4 id="name">6:20 - Act 4 - Raksu </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+      <input type="button" data-name="6:20 - Act 4 - Raksu" data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+<div class="card-block">
+    <h4 id="name">6:25 - Act 5 - Olly Murs </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+     <input type="button" data-name="6:25 - Act 5 - Olly Murs " data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+   <div class="card-block">
+    <h4 id="name">6:30 - Act 6 - The Wanted </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+     <input type="button" data-name="6:30 - Act 6 - The Wanted " data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+  <div class="card-block">
+    <h4 id="name">6:35 - Act 7 - Beyonce </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+      <input type="button" data-name="6:35 - Act 7 - Beyonce " data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+  <div class="card-block">
+    <h4 id="name">6:40 - Act 8 - Ella Mai </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+      <input type="button" data-name="6:40 - Act 8 - Ella Mai " data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+  <div class="card-block">
+    <h4 id="name">6:45 - Act 9 - Dave </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+      <input type="button" data-name="6:45 - Act 9 - Dave" data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+      <div class="card-block">
+    <h4 id="name">6:50 - Act 10 - Post Malone  </h4>
+    <p id="price-tickets">Ticket price: £10</p>
+    <p id="left-tickets">Tickets Left: 10</p>
+     <input type="button" data-name="6:50 - Act 10 - Post Malone" data-price="10" data-Left="10" class="add-to-cart btn btn-primary" value="Add to cart" >
+  </div>
+  </iframe><br/> <br/>
+  <a class="shopping" href="/secure/shopping">
+<img src="{{host}}/shopping cart.jpg" alt="Trolley" width="100"/>
+   </a><br/><br/>
+   <button class="btn btn-primary" data-toggle="modal" data-target="#cart" >Cart(<span class="total-count"></span>)</button>
+   <button class="clear-cart btn btn-danger">Clear Cart</button>
+  <p>This is a secure page. Users need to have a valid account and be logged in to see it.</p>
+<p><a href="/">Home page</a></p>
+
+<script type="module" src="{{host}}/main.js"></script>
+<script src="{{host}}/inform.js"></script>
+</body>
+</html>

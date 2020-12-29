@@ -1,0 +1,57 @@
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+  <script src="{{host}}/inform.js"></script>
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Home</h1>
+			{{#if authorised}}
+				<a href="/logout">Log out</a>
+			{{else}}
+				<a href="/login">Log in</a>
+			{{/if}}
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+	<main>
+		<p>This is the home page. Users can see it without logging in.</p>
+		{{#if authorised}}
+			<p><a href="/secure">secure page</a></p>
+		{{/if}}
+	</main>
+    </iframe>
+  <a class="info" href="secure/info">
+<img src="{{host}}/poster5001.PNG" alt="Thumbnail" width="200"/>
+   </a>
+  </iframe>
+      <h2>The Coventry University Show</h2>
+      <p>First Performance - 15th of June</p>
+      <p>Last Performance - 30th of June</p>
+
+      <h2>The Coventry University Show 2</h2>
+      <p>First Performance - 1st of July</p>
+      <p>Last Performance - 16th of July</p>
+
+      <h2>The Coventry University Show 3</h2>
+      <p>First Performance - 17th of July</p>
+      <p>Last Performance - 2nd of August</p>
+  </iframe>
+
+  <a class="/shopping" href="secure/shopping">
+<img src="{{host}}/shopping cart.jpg" alt="Trolley" width="100"/>
+   </a>
+	</body>
+</html>
