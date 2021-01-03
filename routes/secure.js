@@ -28,4 +28,15 @@ router.get('/shopping', async ctx => {
  await ctx.render('shopping', ctx.hbs)
 })
 
+router.get('/standard', async ctx => {
+ await ctx.render('standard', ctx.hbs)
+})
+
+router.get('/circle', async ctx => {
+ await ctx.render('circle', ctx.hbs)
+})
+
+router.get('/front', async ctx => {
+ await ctx.render('front', ctx.hbs)
+})
 export default router

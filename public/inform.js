@@ -8,11 +8,12 @@ var shoppingCart = (function() {
   // =============================
   cart = [];
   // Constructor
-  function Item(name, price, left, count) {
+  function Item(name, price, count, id) {
     this.name = name;
     this.price = price;
-    this.left = left;
+   // this.left = left;
     this.count = count;
+    this.id = id;
   }
   // Save cart
   function saveCart() {
@@ -30,44 +31,48 @@ var shoppingCart = (function() {
   // =============================
   var obj = {};
   // Add to cart
-  obj.addItemToCart = function(name, price, left, count) {
-    for(var item in cart) {
-      if(cart[item].name === name) {
-        cart[item].count ++;
-        saveCart();
-        return;
-      }
-    }
-    var item = new Item(name, price, left, count);
+  obj.addItemToCart = function(name, price, count, id) {
+//     for(var item in cart) {
+//       if(cart[item].name == name) {
+//         cart[item].count ++;
+//         saveCart();
+//         return;
+//       }
+//     }
+ //  alert(id)
+    var item = new Item(name, price, count, id);
     cart.push(item);
     saveCart();
   }
   // Set count from item
   obj.setCountForItem = function(name, count) {
     for(var i in cart) {
-      if (cart[i].name === name) {
+      if (cart[i].name == name) {
         cart[i].count = count;
         break;
       }
     }
   };
   // Remove item from cart
-  obj.removeItemFromCart = function(name) {
-      for(var item in cart) {
-        if(cart[item].name === name) {
-          cart[item].count --;
-          if(cart[item].count === 0) {
-            cart.splice(item, 1);
-          }
-          break;
-        }
-    }
+  obj.removeItemFromCart = function(id) {
+   //   for(var item in cart) {
+      //  if(cart[item].name == name) {
+        //  cart[item].count --;
+         // if(cart[item].count == 0) {
+       //     cart.splice(item, 1);
+        //  }
+       //   break;
+      //  }
+  //  }
+   console.log(cart);
+   //var cart = cart.filter(function(el) { return el.id != id; }); 
+   // console.log(cart);
     saveCart();
   }
   // Remove all items from cart
   obj.removeItemFromCartAll = function(name) {
     for(var item in cart) {
-      if(cart[item].name === name) {
+      if(cart[item].name == name) {
         cart.splice(item, 1);
         break;
       }
@@ -82,11 +87,11 @@ var shoppingCart = (function() {
 
   // Count cart
   obj.totalCount = function() {
-    var totalCount = 0;
-    for(var item in cart) {
-      totalCount += cart[item].count;
-    }
-    return totalCount;
+   // var totalCount = 0;
+  //  for(var item in cart) {
+    //  totalCount += cart[item].count;
+  //  }
+    return cart.length;
   }
   // Total cart
   obj.totalCart = function() {
@@ -116,18 +121,33 @@ var shoppingCart = (function() {
 // Triggers / Events
 // *****************************************
 // Add item
-
-
 $('.add-to-cart').click(function(event) {
   event.preventDefault();
   var name = $(this).data('name');
   var price = Number($(this).data('price'));
-  shoppingCart.addItemToCart(name, price, 1);
+ var id = Number($(this).data('id'));
+// alert(id);
+ var currentQty = $('.qty-'+id).text();
+ currentQty = parseInt(currentQty) - 1;
+ if(currentQty < 0){
+  alert('Sorry!! all tickets are sold out.');
+  return false;
+ }
+  $('.qty-'+id).text(currentQty);
+ $('.rc-'+id).show();
+  shoppingCart.addItemToCart(name, price, 1, id);
   displayCart();
 });
-
-// Clear items
+// remove from items
+$('.remove-from-cart').click(function() {
+   event.preventDefault();
+  var id = $(this).data('id');
+  shoppingCart.removeItemFromCart(id);
+  displayCart();
+});
+//clear cart
 $('.clear-cart').click(function() {
+ $('.qty').text(10);
   shoppingCart.clearCart();
   displayCart();
 });
