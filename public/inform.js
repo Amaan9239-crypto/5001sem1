@@ -55,18 +55,19 @@ var shoppingCart = (function() {
   };
   // Remove item from cart
   obj.removeItemFromCart = function(id) {
-   //   for(var item in cart) {
-      //  if(cart[item].name == name) {
-        //  cart[item].count --;
+      for(var item in cart) {
+        if(cart[item].id == id) {
+         // cart[item].count --;
          // if(cart[item].count == 0) {
-       //     cart.splice(item, 1);
-        //  }
-       //   break;
-      //  }
-  //  }
+           // cart.splice(item, 1);
+         // }
+         cart.splice(item, 1);
+          break;
+        }
+    }
+  // console.log(cart);
+   //cart.filter(function(el) { return el.id != id; }); 
    console.log(cart);
-   //var cart = cart.filter(function(el) { return el.id != id; }); 
-   // console.log(cart);
     saveCart();
   }
   // Remove all items from cart
@@ -142,12 +143,21 @@ $('.add-to-cart').click(function(event) {
 $('.remove-from-cart').click(function() {
    event.preventDefault();
   var id = $(this).data('id');
-  shoppingCart.removeItemFromCart(id);
-  displayCart();
+  var currentQty = $('.qty-'+id).text();
+ currentQty = parseInt(currentQty) + 1;
+  $('.qty-'+id).text(currentQty);
+   shoppingCart.removeItemFromCart(id);
+   displayCart();
+ if(currentQty >= 10){
+ // alert('Sorry!! all tickets are sold out.');
+   $('.rc-'+id).hide();
+  return false;
+ }
 });
 //clear cart
 $('.clear-cart').click(function() {
  $('.qty').text(10);
+  $('.remove-from-cart').hide();
   shoppingCart.clearCart();
   displayCart();
 });
